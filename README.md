@@ -2,7 +2,7 @@
 
 Projekt w pełni funkcjonalnego zegara czasu rzeczywistego (RTC) z obsługą alarmu i drzemki, zaimplementowany w języku VHDL dla Intel MAX 10 DE10-Lite FPGA. 
 
-Projekt wykorzystuje architekturę strukturalną (hierarchiczną), opartą na łączeniu niezależnych modułów (m m.in. preskalery BCD, debouncery, maszyna stanów FSM, własne rejestry cienia), co pozwala na bardzo niskie zużycie zasobów logicznych układu FPGA.
+Projekt wykorzystuje architekturę strukturalną (hierarchiczną), opartą na łączeniu niezależnych modułów, co pozwala na bardzo niskie zużycie zasobów logicznych układu FPGA.
 
 ## Główne funkcje projektu
 
