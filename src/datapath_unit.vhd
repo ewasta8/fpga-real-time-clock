@@ -68,12 +68,24 @@ begin
         end if;
     end process;
 
-    MUX_H_DZ: entity work.mux4x1 port map(q_h_dz, sh_h_dz, sh_al_h_dz, x"0", mux_sel(1), mux_sel(0), disp_h_dz);
-    MUX_H_J:  entity work.mux4x1 port map(q_h_j,  sh_h_j,  sh_al_h_j,  x"0", mux_sel(1), mux_sel(0), disp_h_j);
-    MUX_M_DZ: entity work.mux4x1 port map(q_m_dz, sh_m_dz, sh_al_m_dz, x"0", mux_sel(1), mux_sel(0), disp_m_dz);
-    MUX_M_J:  entity work.mux4x1 port map(q_m_j,  sh_m_j,  sh_al_m_j,  x"0", mux_sel(1), mux_sel(0), disp_m_j);
-    MUX_S_DZ: entity work.mux4x1 port map(q_s_dz, sh_s_dz, sh_al_s_dz, x"0", mux_sel(1), mux_sel(0), disp_s_dz);
-    MUX_S_J:  entity work.mux4x1 port map(q_s_j,  sh_s_j,  sh_al_s_j,  x"0", mux_sel(1), mux_sel(0), disp_s_j);
+    MUX_H_DZ: entity work.mux4x1
+        port map(d0 => q_h_dz, d1 => sh_h_dz, d2 => sh_al_h_dz, d3 => x"0",
+                 s0 => mux_sel(0), s1 => mux_sel(1), y => disp_h_dz);
+    MUX_H_J: entity work.mux4x1
+        port map(d0 => q_h_j, d1 => sh_h_j, d2 => sh_al_h_j, d3 => x"0",
+                 s0 => mux_sel(0), s1 => mux_sel(1), y => disp_h_j);
+    MUX_M_DZ: entity work.mux4x1
+        port map(d0 => q_m_dz, d1 => sh_m_dz, d2 => sh_al_m_dz, d3 => x"0",
+                 s0 => mux_sel(0), s1 => mux_sel(1), y => disp_m_dz);
+    MUX_M_J: entity work.mux4x1
+        port map(d0 => q_m_j, d1 => sh_m_j, d2 => sh_al_m_j, d3 => x"0",
+                 s0 => mux_sel(0), s1 => mux_sel(1), y => disp_m_j);
+    MUX_S_DZ: entity work.mux4x1
+        port map(d0 => q_s_dz, d1 => sh_s_dz, d2 => sh_al_s_dz, d3 => x"0",
+                 s0 => mux_sel(0), s1 => mux_sel(1), y => disp_s_dz);
+    MUX_S_J: entity work.mux4x1
+        port map(d0 => q_s_j, d1 => sh_s_j, d2 => sh_al_s_j, d3 => x"0",
+                 s0 => mux_sel(0), s1 => mux_sel(1), y => disp_s_j);
 
     alarm_trigger <= '1' when (q_s_j = al_s_j and q_s_dz = al_s_dz and q_m_j = al_m_j and 
                                q_m_dz = al_m_dz and q_h_j = al_h_j and q_h_dz = al_h_dz) else '0';

@@ -70,8 +70,8 @@ begin
                 HEX5 <= x"FF"; HEX4 <= x"FF"; HEX3 <= x"FF"; 
                 HEX2 <= x"FF"; HEX1 <= x"FF"; HEX0 <= x"FF";
             end if;
-        elsif SW(0) = '0' then
-            HEX5 <= x"FF"; HEX4 <= x"FF"; HEX3 <= x"FF"; 
+        elsif SW(0) = '0' and mux_sel = "00" then
+            HEX5 <= x"FF"; HEX4 <= x"FF"; HEX3 <= x"FF";
             HEX2 <= x"FF"; HEX1 <= x"FF"; HEX0 <= x"FF";
         end if;
     end process;

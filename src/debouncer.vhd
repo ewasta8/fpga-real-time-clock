@@ -29,10 +29,11 @@ begin
 
             -- 2. Eliminator drgań styków (Debouncer)
             if (flipflops(1) /= btn_state) then
-                counter <= counter + 1;
                 if (counter = DEBOUNCE_LIMIT) then
                     btn_state <= flipflops(1); -- Zmień stan oficjalnie dopiero po 20 ms stabilności
                     counter <= 0;
+                else
+                    counter <= counter + 1;
                 end if;
             else
                 counter <= 0;
